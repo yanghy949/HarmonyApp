@@ -1,0 +1,41 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\maxik\\.ohos\\config\\auto_debug_aap01_com.yhy.aap01_40086000134731427.cer",
+          "storePassword": "0000001BD74E232139CE2B89A7C74AC8F07252649E0CF4E578FB03B4EF0BFB227B4D42C8465AAFFCC21AD2",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B87ED773448ADAA284BBDF9B5467625E7229E2344D8156FF76DDC8306104071CA04C947B4641543",
+          "profile": "C:\\Users\\maxik\\.ohos\\config\\auto_debug_aap01_com.yhy.aap01_40086000134731427.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\maxik\\.ohos\\config\\auto_debug_aap01_com.yhy.aap01_40086000134731427.p12"
+        }
+      }
+    ],
+    "compileSdkVersion": 9,
+    "compatibleSdkVersion": 9,
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
