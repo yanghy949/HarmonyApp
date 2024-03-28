@@ -42,7 +42,7 @@ struct Index {
         .onClick(()=>{
           if (this.user=='yhy'&&this.pass=='123') {
             router.pushUrl({
-              url:'pages/Page'
+              url:'pages/home'
             })
           }
           else {
