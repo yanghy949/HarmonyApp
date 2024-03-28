@@ -50,7 +50,7 @@ struct Home {
             Image($r('app.media.ikun')).width(50)
           }
 
-        }.margin({top:20}).backgroundColor(Color.Pink)
+        }.margin({top:40}).backgroundColor(Color.Pink)
   }
   }
 }
