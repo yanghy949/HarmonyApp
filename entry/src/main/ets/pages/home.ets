@@ -1,5 +1,4 @@
 import router from '@ohos.router'
-import url from '@ohos.url'
 @Entry
 @Component
 struct Home {
@@ -12,23 +11,46 @@ struct Home {
         Image($r('app.media.ikun'))
           .width(100)
           .height(100)
-          .margin({top:20})
+          .margin({top:30})
           .borderRadius(100)
         Column(){
           Text(this.user)
-            .fontSize(20)
+            .fontSize(30)
             .margin({left:0,top:30})
           Text('ID:'+this.ID)
-          }.height(100).margin({top:20,left:15})
-          .backgroundColor(Color.Pink)
+          }.height(100).margin({top:30,left:20})
           Button('设置')
-            .margin({left:'40%',top:20})
+            .margin({left:'35%',top:30})
             .onClick(()=>{
               router.pushUrl({
                 url:'pages/Index'
               })
             })
       }
+        Row(){
+          Column(){
+            Text('订单')
+              .fontSize(30)
+            Image($r('app.media.ikun')).width(50)
+          }
+
+          Text('|').fontSize(30).margin({left:10,right:10})
+
+          Column() {
+            Text('待支付')
+              .fontSize(30)
+            Image($r('app.media.ikun')).width(50)
+          }
+
+          Text('|').fontSize(30).margin({left:10,right:10})
+
+          Column() {
+            Text('待收货')
+              .fontSize(30)
+            Image($r('app.media.ikun')).width(50)
+          }
+
+        }.margin({top:20}).backgroundColor(Color.Pink)
   }
   }
 }

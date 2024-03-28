@@ -14,7 +14,7 @@ struct Index {
         .margin({top:150})
         .borderRadius(100)
 
-      Text('杨鸿宇')
+      Text('ikun商城')
         .margin({top:30})
         .fontWeight(FontWeight.Bold)
         .fontSize(30)
