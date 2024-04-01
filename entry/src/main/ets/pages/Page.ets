@@ -2,7 +2,7 @@ import thermal from '@ohos.thermal'
 import router from '@ohos.router'
 @Entry
 @Component
-struct Page {
+export default struct Page {
   @State message: string = 'Hello World'
   @State bt:string = '这是一个按钮'
   @State bg1:Color = Color.Pink
@@ -29,7 +29,7 @@ struct Page {
             // this.bg1 = Color.Red
             // this.bg3 = Color.Yellow
             router.pushUrl({
-              url:'pages/home'
+              url:'pages/Index'
             })
           })
 

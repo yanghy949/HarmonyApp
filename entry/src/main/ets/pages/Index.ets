@@ -1,64 +1,52 @@
-import router from '@ohos.router'
-import promptAction from '@ohos.promptAction'
+import home from './home'
+import Page from './Page'
+
 @Entry
 @Component
-struct Index {
-  @State user: string = ''
-  @State pass: string = ''
+struct tabs {
+  @State currentIndex: number = 0;
+
+  @Builder TabBarBuilder(index: number, title: string, icon: Resource, iconSelected: Resource) {
+    Column() {
+      Image(this.currentIndex === index ? iconSelected : icon)
+        .width(24)
+        .height(24)
+        .margin(5)
+        .objectFit(ImageFit.Contain)
+      Text(title)
+        // .fontColor(this.currentIndex === index ? this.selectedFontColor : this.fontColor)
+        .fontSize(10)
+        .fontWeight(500)
+        .lineHeight(14)
+    }
+    .justifyContent(FlexAlign.Center)
+    .height('100%')
+    .width('100%')
+    .backgroundColor('#f7f7f7')
+    .border({ width: { top: 0.5 }, color: '#bbbbbb' })
+  }
 
   build() {
-    Column(){
-      Image($r('app.media.ikun'))
-        .width(100)
-        .height(100)
-        .margin({top:150})
-        .borderRadius(100)
+    Row() {
+      Tabs({ barPosition: BarPosition.End }) {
+        TabContent() {
+          Page()
+        }
+        .tabBar(this.TabBarBuilder(0, '首页', $r('app.media.ikun'), $r('app.media.app_icon')))
+        .tabIndex(0)
 
-      Text('ikun商城')
-        .margin({top:30})
-        .fontWeight(FontWeight.Bold)
-        .fontSize(30)
+        TabContent() {
+          Page()
+        }
+        .tabBar(this.TabBarBuilder(1, '购物车', $r('app.media.ikun'), $r('app.media.ikun')))
+        .tabIndex(1)
 
-      TextInput({placeholder:'请输入用户名',text:this.user})
-        .width('80%')
-        .padding(10)
-        .margin({top:50})
-        .onChange((value)=>{
-          this.user = value
-        })
-
-      TextInput({placeholder:'请输入密码', text:this.pass})
-        .type(InputType.Password)
-        .width('80%')
-        .padding(10)
-        .margin({top:20})
-        .onChange((value)=>{
-          this.pass = value
-        })
-
-      Button('登录')
-        .margin({top:30})
-        .width('80%')
-        .onClick(()=>{
-          if (this.user=='yhy'&&this.pass=='123') {
-            router.pushUrl({
-              url:'pages/home'
-            })
-          }
-          else {
-            promptAction.showToast({message:'用户名或密码错误'})
-          }
-        })
-      Text('注册账号')
-        .margin({top:10})
-        .fontColor('#007BFF')
-        .onClick(()=>{
-          router.pushUrl({
-            url:'pages/Page'
-          })
-        })
+        TabContent() {
+          home()
+        }
+        .tabBar(this.TabBarBuilder(2, '我的', $r('app.media.ikun'), $r('app.media.ikun')))
+        .tabIndex(2)
+      }
     }
-    .width('100%')
-    .height('100%')
   }
 }

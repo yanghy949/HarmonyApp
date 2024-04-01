@@ -1,7 +1,11 @@
 {
   "src": [
-    "pages/Index",
+    "pages/login",
     "pages/Page",
-    "pages/home"
+    "pages/home",
+    "pages/home/dingdan",
+    "pages/home/place",
+    "test_demo/test2",
+    "pages/Index"
   ]
 }
