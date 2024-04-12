@@ -41,7 +41,7 @@ struct Index {
         .width('80%')
         .onClick(()=>{
           if (this.user=='yhy'&&this.pass=='123') {
-            router.pushUrl({
+            router.replaceUrl({
               url:'pages/Index'
             })
           }

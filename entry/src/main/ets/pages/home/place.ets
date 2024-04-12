@@ -1,3 +1,5 @@
+import Router from '@system.router'
+import router from '@ohos.router'
 @Entry
 @Component
 struct Place {
@@ -22,6 +24,9 @@ struct Place {
         })
         Row(){
           Button('添加新地址')
+            .onClick(()=>{
+              this.place.push('北京科技大学天津学院')
+            })
         }
         .margin({top:50})
       }
