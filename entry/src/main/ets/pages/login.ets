@@ -44,6 +44,7 @@ struct Index {
             router.replaceUrl({
               url:'pages/Index'
             })
+            router.clear()
           }
           else {
             promptAction.showToast({message:'用户名或密码错误'})
