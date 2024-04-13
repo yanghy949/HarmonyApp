@@ -1,5 +1,5 @@
-import thermal from '@ohos.thermal'
 import router from '@ohos.router'
+
 @Entry
 @Component
 export default struct Page {
@@ -28,7 +28,7 @@ export default struct Page {
             // this.bt = "没让你按"
             // this.bg1 = Color.Red
             // this.bg3 = Color.Yellow
-            router.pushUrl({
+            router.replaceUrl({
               url:'pages/Index'
             })
           })

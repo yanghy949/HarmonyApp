@@ -1,11 +1,10 @@
+import router from '@ohos.router';
 import home from './home'
 import Page from './Page'
-
 @Entry
 @Component
 struct tabs {
   @State currentIndex: number = 0;
-
   @Builder TabBarBuilder(index: number, title: string, icon: Resource, iconSelected: Resource) {
     Column() {
       Image(this.currentIndex === index ? iconSelected : icon)
@@ -13,8 +12,9 @@ struct tabs {
         .height(24)
         .margin(5)
         .objectFit(ImageFit.Contain)
-      Text(title)
-        // .fontColor(this.currentIndex === index ? this.selectedFontColor : this.fontColor)
+        .borderRadius(50)
+      Text(this.currentIndex === index ? 'ikun':title)
+        .fontColor(this.currentIndex === index ? '#007DFF' : '#182431')
         .fontSize(10)
         .fontWeight(500)
         .lineHeight(14)
@@ -28,25 +28,25 @@ struct tabs {
 
   build() {
     Row() {
-      Tabs({ barPosition: BarPosition.End }) {
+      Tabs({ barPosition: BarPosition.End}) {
         TabContent() {
           Page()
         }
-        .tabBar(this.TabBarBuilder(0, '首页', $r('app.media.ikun'), $r('app.media.app_icon')))
-        .tabIndex(0)
+        .tabBar(this.TabBarBuilder(0, '商城', $r('app.media.mall'), $r('app.media.ikun')))
 
         TabContent() {
-          Page()
+          Text('购物车')
         }
-        .tabBar(this.TabBarBuilder(1, '购物车', $r('app.media.ikun'), $r('app.media.ikun')))
-        .tabIndex(1)
+        .tabBar(this.TabBarBuilder(1, '购物车', $r('app.media.shopping'), $r('app.media.ikun')))
 
         TabContent() {
           home()
         }
-        .tabBar(this.TabBarBuilder(2, '我的', $r('app.media.ikun'), $r('app.media.ikun')))
-        .tabIndex(2)
+        .tabBar(this.TabBarBuilder(2, '我的', $r('app.media.home'), $r('app.media.ikun')))
       }
+      .onChange((index: number) => {
+        this.currentIndex = index
+      })
     }
   }
 }

@@ -42,7 +42,8 @@ struct Index {
         .onClick(()=>{
           if (this.user=='yhy'&&this.pass=='123') {
             router.replaceUrl({
-              url:'pages/Index'
+              url:'pages/Index',
+              // params:{num:'2'}
             })
             router.clear()
           }

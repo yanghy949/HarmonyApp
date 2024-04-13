@@ -1,17 +1,18 @@
 import router from '@ohos.router'
 import promptAction from '@ohos.promptAction';
-// import { tabs } from '../tabs/tabs'
+import web_webview from '@ohos.web.webview'
 
 @Entry
 @Component
 export default struct Home {
+  web: web_webview.WebviewController = new web_webview.WebviewController();
   @State user: string = '用户名'
   @State ID: string = '123123'
   @State list: Object[] = [
-    { text: '待支付', image: $r('app.media.ikun'), url: 'pages/home/dingdan' },
-    { text: '待发货', image: $r('app.media.ikun'), url: 'pages/home/dingdan' },
-    { text: '待收货', image: $r('app.media.ikun'), url: 'pages/home/dingdan' },
-    { text: '待评价', image: $r('app.media.ikun'), url: 'pages/home/dingdan' }
+    { text: '待支付', image: $r('app.media.ikun'), url: 'pages/home/dingdan', id: 0 },
+    { text: '待发货', image: $r('app.media.ikun'), url: 'pages/home/dingdan', id: 1 },
+    { text: '待收货', image: $r('app.media.ikun'), url: 'pages/home/dingdan', id: 2 },
+    { text: '待评价', image: $r('app.media.ikun'), url: 'pages/home/dingdan', id: 3 }
   ];
   @State menu: Object[] = [
     { menu: '我的地址', url: 'pages/home/place' },
@@ -51,8 +52,8 @@ export default struct Home {
                 // })
               })
           }
-          //订单
 
+          //订单
           Text('全部订单 >')
             .margin({ top: 40, bottom: 15 })
             .fontSize(18)
@@ -60,7 +61,7 @@ export default struct Home {
             .textAlign(TextAlign.End)
             .fontColor('#7f7f7f')
             .onClick(() => {
-              router.pushUrl({url:'pages/home/dingdan'})
+              router.pushUrl({ url: 'pages/home/dingdan', params: { id: 0 } })
             })
           Row() {
             ForEach(this.list, (item) => {
@@ -73,7 +74,8 @@ export default struct Home {
               .onClick(() => {
                 promptAction.showToast({ message: '还没写，别瞎点' })
                 router.pushUrl({
-                  url: item.url
+                  url: item.url,
+                  params: { id: item.id }
                 })
               })
             })
@@ -110,10 +112,10 @@ export default struct Home {
             .fontColor('#000000')
             .fontSize(20)
             .onClick(() => {
-              router.pushUrl({
+              router.replaceUrl({
                 url: 'pages/login'
               })
-
+              router.clear()
             })
         }
       }
