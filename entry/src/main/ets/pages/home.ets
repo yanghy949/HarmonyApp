@@ -45,9 +45,6 @@ export default struct Home {
               .margin({ left: '35%', top: 30 })
               .onClick(() => {
                 promptAction.showToast({ message: '还没写，别瞎点' })
-                // router.pushUrl({
-                //   url: 'pages/Index'
-                // })
               })
           }
 
@@ -117,7 +114,6 @@ export default struct Home {
             })
         }
       }
-      // tabs()
     }
   }
 }
