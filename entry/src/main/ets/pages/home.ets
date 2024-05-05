@@ -1,11 +1,9 @@
 import router from '@ohos.router'
 import promptAction from '@ohos.promptAction';
-import web_webview from '@ohos.web.webview'
 
 @Entry
 @Component
 export default struct Home {
-  web: web_webview.WebviewController = new web_webview.WebviewController();
   @State user: string = '用户名'
   @State ID: string = '123123'
   @State list: Object[] = [
