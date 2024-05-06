@@ -1,6 +1,6 @@
-import router from '@ohos.router';
 import home from './home'
 import Page from './Page'
+import fs from '@ohos.file.fs';
 @Entry
 @Component
 struct tabs {
@@ -24,6 +24,14 @@ struct tabs {
     .width('100%')
     .backgroundColor('#f7f7f7')
     .border({ width: { top: 0.5 }, color: '#bbbbbb' })
+  }
+  aboutToAppear(){
+      let file=fs.accessSync('home.ets')
+      if (file){
+        console.log('yes');
+      }else {
+        console.log('no');
+      }
   }
 
   build() {
