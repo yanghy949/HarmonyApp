@@ -1,9 +1,10 @@
+import router from '@ohos.router';
 import home from './home'
 import Page from './Page'
-import fs from '@ohos.file.fs';
 @Entry
 @Component
 struct tabs {
+  user:string=router.getParams()?.['user'];
   @State currentIndex: number = 0;
   @Builder TabBarBuilder(index: number, title: string, icon: Resource, iconSelected: Resource) {
     Column() {
@@ -26,12 +27,11 @@ struct tabs {
     .border({ width: { top: 0.5 }, color: '#bbbbbb' })
   }
   aboutToAppear(){
-      let file=fs.accessSync('home.ets')
-      if (file){
-        console.log('yes');
-      }else {
-        console.log('no');
-      }
+    if(!this.user){
+      router.replaceUrl({
+        url:'pages/login'
+      })
+    }
   }
 
   build() {
@@ -48,7 +48,7 @@ struct tabs {
         .tabBar(this.TabBarBuilder(1, '购物车', $r('app.media.shopping'), $r('app.media.ikun')))
 
         TabContent() {
-          home()
+          home({name:this.user,ID:'123'})
         }
         .tabBar(this.TabBarBuilder(2, '我的', $r('app.media.home'), $r('app.media.ikun')))
       }

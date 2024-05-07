@@ -31,7 +31,7 @@ struct dingdan{
       Tabs({controller:this.controller}) {
         ForEach(this.tabs, (tab) => {
           TabContent() {
-            page1({ name: tab.text })
+            page1({ name:"暂无"+ tab.text })
           }
           .tabBar(tab)
           .tabIndex(tab.id)

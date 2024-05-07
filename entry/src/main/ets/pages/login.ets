@@ -40,10 +40,12 @@ struct Index {
         .margin({top:30})
         .width('80%')
         .onClick(()=>{
-          if (this.user=='yhy'&&this.pass=='123') {
+          if ((this.user=='yhy'&&this.pass=='123')||(this.user=='lhy'&&this.pass=='456')) {
             router.replaceUrl({
               url:'pages/Index',
-              // params:{num:'2'}
+              params:{
+                user:this.user,
+              }
             })
             router.clear()
           }

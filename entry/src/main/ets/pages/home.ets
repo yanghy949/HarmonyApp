@@ -4,7 +4,7 @@ import promptAction from '@ohos.promptAction';
 @Entry
 @Component
 export default struct Home {
-  @State user: string = '用户名'
+  @State name: string = '用户名'
   @State ID: string = '123123'
   @State list: Object[] = [
     { text: '待支付', image: $r('app.media.ikun'), url: 'pages/home/dingdan', id: 0 },
@@ -18,7 +18,7 @@ export default struct Home {
     { menu: '个性设置', url: '' },
     { menu: '关于应用', url: '' },
   ]
-
+@State sign:string='签到'
   build() {
     Column() {
       Scroll() {
@@ -33,7 +33,7 @@ export default struct Home {
               .borderRadius(100)
 
             Column() {
-              Text(this.user)
+              Text(this.name)
                 .fontSize(30)
                 .margin({ left: 0, top: 30 })
               Text('ID:' + this.ID)
@@ -41,10 +41,12 @@ export default struct Home {
             .height(100)
             .margin({ top: 30, left: 20 })
             //修改
-            Button('修改')
-              .margin({ left: '35%', top: 30 })
+            Button(this.sign)
+              .margin({ left: 30, top: 30 })
               .onClick(() => {
-                promptAction.showToast({ message: '还没写，别瞎点' })
+                this.sign='已签到'
+                promptAction.showToast({ message: '签到成功' })
+                console.log(this.sign);
               })
           }
 
