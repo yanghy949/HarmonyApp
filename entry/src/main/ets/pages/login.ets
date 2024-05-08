@@ -1,10 +1,20 @@
 import router from '@ohos.router'
 import promptAction from '@ohos.promptAction'
+
+let users=[
+  {name:'yhy',pass:'123'},
+  {name:'lhy',pass:'456'}
+]
 @Entry
 @Component
-struct Index {
-  @State user: string = ''
-  @State pass: string = ''
+struct login {
+  @State user: string = router.getParams()?.['user'];
+  @State pass: string = router.getParams()?.['pass'];
+aboutToAppear(){
+  if(this.user&&this){
+    users.push({name:this.user,pass:this.pass})
+  }
+}
 
   build() {
     Column(){
@@ -39,26 +49,40 @@ struct Index {
       Button('登录')
         .margin({top:30})
         .width('80%')
-        .onClick(()=>{
-          if ((this.user=='yhy'&&this.pass=='123')||(this.user=='lhy'&&this.pass=='456')) {
-            router.replaceUrl({
-              url:'pages/Index',
-              params:{
-                user:this.user,
-              }
-            })
-            router.clear()
+        .onClick(()=> {
+          for (let i = 0;i < users.length; i++) {
+            if (users[i].name === this.user && users[i].pass === this.pass) {
+              router.replaceUrl({
+                url: 'pages/Index',
+                params: {
+                  user: this.user,
+                }
+              })
+              router.clear()
+              return 0
+            }
           }
-          else {
-            promptAction.showToast({message:'用户名或密码错误'})
-          }
+          promptAction.showToast({ message: '用户名或密码错误' })
         })
+        //   if ((this.user=='yhy'&&this.pass=='123')||(this.user=='lhy'&&this.pass=='456')) {
+        //     router.replaceUrl({
+        //       url:'pages/Index',
+        //       params:{
+        //         user:this.user,
+        //       }
+        //     })
+        //     router.clear()
+        //   }
+        //   else {
+        //     promptAction.showToast({message:'用户名或密码错误'})
+        //   }
+        // })
       Text('注册账号')
         .margin({top:10})
         .fontColor('#007BFF')
         .onClick(()=>{
           router.pushUrl({
-            url:'pages/Page'
+            url:'pages/reg'
           })
         })
     }

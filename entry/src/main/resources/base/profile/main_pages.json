@@ -6,6 +6,7 @@
     "pages/Page",
     "pages/home/dingdan",
     "pages/home/place",
-    "test_demo/test2"
+    "test_demo/test2",
+    "pages/reg"
   ]
 }
