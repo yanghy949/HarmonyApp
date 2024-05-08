@@ -10,12 +10,11 @@ struct reg {
 
   build() {
     Column() {
-      // Image($r('app.media.ikun'))
-      //   .width(100)
-      //   .height(100)
-      //   .margin({top:150})
-      //   .borderRadius(100)
-
+      Navigation()
+        .title('')
+        .titleMode(NavigationTitleMode.Mini)
+        .height(50)
+        // .margin({top:20})
       Text('注册')
         .margin({ top: 30 })
         .fontWeight(FontWeight.Bold)
@@ -71,5 +70,10 @@ struct reg {
     }
     .width('100%')
     .height('100%')
+    .linearGradient({
+      angle:1800,
+      colors:[[0x040b3d,0.0],[0xf6f0f4,1]]
+    })
+    .padding(20)
   }
 }

@@ -88,5 +88,10 @@ aboutToAppear(){
     }
     .width('100%')
     .height('100%')
+    .linearGradient({
+      angle:180,
+      colors:[[0x040b3d,0.0],[0xf6f0f4,1]]
+    })
+    .padding(20)
   }
 }

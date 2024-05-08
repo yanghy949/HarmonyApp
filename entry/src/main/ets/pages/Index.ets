@@ -39,6 +39,7 @@ struct tabs {
       Tabs({ barPosition: BarPosition.End}) {
         TabContent() {
           Page()
+
         }
         .tabBar(this.TabBarBuilder(0, '商城', $r('app.media.mall'), $r('app.media.ikun')))
 
