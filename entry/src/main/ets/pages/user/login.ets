@@ -82,7 +82,7 @@ aboutToAppear(){
         .fontColor('#007BFF')
         .onClick(()=>{
           router.pushUrl({
-            url:'pages/reg'
+            url:'pages/user/reg'
           })
         })
     }

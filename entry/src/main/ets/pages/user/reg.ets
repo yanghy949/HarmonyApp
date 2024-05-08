@@ -56,7 +56,7 @@ struct reg {
           }
           else if (this.pass === this.pass2) {
             router.replaceUrl({
-              url: 'pages/login',
+              url: 'pages/user/login',
               params: {
                 user: this.user,
                 pass: this.pass

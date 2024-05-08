@@ -29,7 +29,7 @@ struct tabs {
   aboutToAppear(){
     if(!this.user){
       router.replaceUrl({
-        url:'pages/login'
+        url:'pages/user/login'
       })
     }
   }

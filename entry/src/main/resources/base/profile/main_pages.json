@@ -2,11 +2,11 @@
   "src": [
     "pages/Index",
     "pages/home",
-    "pages/login",
+    "pages/user/login",
     "pages/Page",
     "pages/home/dingdan",
     "pages/home/place",
     "test_demo/test2",
-    "pages/reg"
+    "pages/user/reg"
   ]
 }
