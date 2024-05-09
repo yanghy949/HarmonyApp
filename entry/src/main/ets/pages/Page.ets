@@ -1,7 +1,7 @@
 import {TabBars} from './components/TabBars'
 @Entry
 @Component
-export default struct Index {
+export default struct Page {
   @State message: string = 'Hello World'
 
   build() {

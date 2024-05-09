@@ -14,9 +14,9 @@ export default struct Home {
   ];
   @State menu: Object[] = [
     { menu: '我的地址', url: 'pages/home/place' },
-    { menu: '我的钱包', url: '' },
-    { menu: '个性设置', url: '' },
-    { menu: '关于应用', url: '' },
+    { menu: '我的钱包', url: 'pages/home/pay' },
+    // { menu: '个性设置', url: '' },
+    { menu: '关于应用', url: 'pages/home/about' },
   ]
 @State sign:string='签到'
   build() {
@@ -82,20 +82,22 @@ export default struct Home {
             Row() {
               Text(item.menu)
                 .fontSize(30)
-                .width('45%')
+                .width('50%')
                 .padding({ left: '10%' })
               Text('>')
                 .fontSize(30)
                 .width('55%')
-                .padding({ left: '45%' })
+                .textAlign(TextAlign.End)
+                .padding({right:'10%',top:5,bottom:5})
+                // .padding({ left: '45%' })
             }
+            .borderRadius(10)
+            .width('90%')
             .margin({ top: 20 })
-            .borderColor('#3c3c3c')
-            .borderWidth({ top: 1, bottom: 1 })
-            .width('100%')
-            .padding({ top: 2, bottom: 2 })
+            .backgroundColor('#e3e4e5')
+            .padding({ top: 5, bottom: 5 })
             .onClick(() => {
-              promptAction.showToast({ message: '还没写，别瞎点' })
+              // promptAction.showToast({ message: '还没写，别瞎点' })
               router.pushUrl({
                 url: item.url
               })

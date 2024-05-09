@@ -11,7 +11,7 @@ struct reg {
   build() {
     Column() {
       Navigation()
-        .title('')
+        .title('注册')
         .titleMode(NavigationTitleMode.Mini)
         .height(50)
         // .margin({top:20})

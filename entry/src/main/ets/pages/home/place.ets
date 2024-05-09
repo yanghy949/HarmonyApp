@@ -16,7 +16,9 @@ struct Place {
               .fontSize(30)
           }
           .width('100%')
-          .border({color:'#999999',width:2})
+          .backgroundColor('#e3e4e5')
+          .width('90%')
+          .borderRadius(10)
           .margin({top:20})
           .padding(10)
         })
