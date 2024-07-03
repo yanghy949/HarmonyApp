@@ -20,7 +20,7 @@ struct Pay {
         .titleMode(NavigationTitleMode.Mini)
         .height(50)
         .margin({ top: 30 })
-      ForEach(this.PayList, (item) => {
+      ForEach(this.PayList, (item:Pays) => {
         Column() {
           Row() {
             Image(item.img)

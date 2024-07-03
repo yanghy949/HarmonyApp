@@ -44,8 +44,8 @@ export default struct Home {
             Button(this.sign)
               .margin({ left: 30, top: 30 })
               .onClick(() => {
+                promptAction.showToast({ message: this.sign==='签到'?'签到成功':'请勿重复签到' })
                 this.sign='已签到'
-                promptAction.showToast({ message: '签到成功' })
                 console.log(this.sign);
               })
           }
@@ -69,7 +69,7 @@ export default struct Home {
               }
               .width('25%')
               .onClick(() => {
-                promptAction.showToast({ message: '还没写，别瞎点' })
+                // promptAction.showToast({ message: '还没写，别瞎点' })
                 router.pushUrl({
                   url: item.url,
                   params: { id: item.id }
@@ -112,7 +112,7 @@ export default struct Home {
             .fontSize(20)
             .onClick(() => {
               router.replaceUrl({
-                url: 'pages/login'
+                url: 'pages/user/login'
               })
               router.clear()
             })

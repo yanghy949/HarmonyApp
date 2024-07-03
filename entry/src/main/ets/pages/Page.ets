@@ -1,11 +1,17 @@
 import {TabBars} from './components/TabBars'
+import guanggao from './components/guanggao'
+
 @Entry
 @Component
 export default struct Page {
-  @State message: string = 'Hello World'
+
 
   build() {
-    Row() {
+    Column() {
+      Row(){
+        guanggao()
+      }.margin({top:1})
+      .width('95%')
       // Navigation(){
         Column(){
           //内容

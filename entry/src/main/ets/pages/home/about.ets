@@ -50,7 +50,7 @@ struct About {
         .padding(10)
         .alignSelf(ItemAlign.Start)
         Row() {
-          Text(`https://github.com/yanghy949/Harmony`)
+          Text(`https://github.com/yanghy949/HarmonyApp`)
             .padding({bottom:5})
 
         }

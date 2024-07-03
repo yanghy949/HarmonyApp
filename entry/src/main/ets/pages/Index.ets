@@ -1,6 +1,7 @@
 import router from '@ohos.router';
 import home from './home'
 import Page from './Page'
+import gouwuche from './gouwuche'
 @Entry
 @Component
 struct tabs {
@@ -44,7 +45,7 @@ struct tabs {
         .tabBar(this.TabBarBuilder(0, '商城', $r('app.media.mall'), $r('app.media.ikun')))
 
         TabContent() {
-          Text('购物车')
+          gouwuche()
         }
         .tabBar(this.TabBarBuilder(1, '购物车', $r('app.media.shopping'), $r('app.media.ikun')))
 
